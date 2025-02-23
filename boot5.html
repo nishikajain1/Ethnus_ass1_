@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            background-color: rgb(176, 171, 171);
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875rem;
+            display: none;
+        }
+        .error-input {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="validationForm">
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName">
+                <div class="error-message">Please supply your first name</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName">
+                <div class="error-message">Please supply your last name</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">E-Mail</label>
+                <input type="email" class="form-control" id="email">
+                <div class="error-message">Please supply your email address</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone">
+                <div class="error-message">Please supply your phone number</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" id="address">
+                <div class="error-message">Please supply your street address</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" id="city">
+                <div class="error-message">Please supply your city</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">State</label>
+                <select class="form-control" id="state">
+                    <option value="">Please select your state</option>
+                    <option value="state1">State 1</option>
+                    <option value="state2">State 2</option>
+                </select>
+                <div class="error-message">Please select your state</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Do you have hosting?</label>
+                <div>
+                    <input type="radio" name="hosting" id="hostingYes" value="Yes"> Yes
+                    <input type="radio" name="hosting" id="hostingNo" value="No"> No
+                </div>
+                <div class="error-message">Please select an option</div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Project Description</label>
+                <textarea class="form-control" id="projectDescription"></textarea>
+                <div class="error-message">Please provide a project description</div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("validationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let isValid = true;
+            const fields = ["firstName", "lastName", "email", "phone", "address", "city", "state", "projectDescription"];
+            
+            fields.forEach(function(field) {
+                let input = document.getElementById(field);
+                let errorMessage = input.nextElementSibling;
+                if (input.value.trim() === "") {
+                    input.classList.add("error-input");
+                    errorMessage.style.display = "block";
+                    isValid = false;
+                } else {
+                    input.classList.remove("error-input");
+                    errorMessage.style.display = "none";
+                }
+            });
+            
+            const hostingOptions = document.getElementsByName("hosting");
+            let hostingSelected = false;
+            hostingOptions.forEach(option => { if (option.checked) hostingSelected = true; });
+            let hostingError = hostingOptions[0].parentElement.nextElementSibling;
+            if (!hostingSelected) {
+                hostingError.style.display = "block";
+                isValid = false;
+            } else {
+                hostingError.style.display = "none";
+            }
+            
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

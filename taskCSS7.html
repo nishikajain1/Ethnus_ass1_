@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8a1c40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .container {
+            background: #5a0f2a;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            width: 450px;
+        }
+        .container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .container input, select, textarea {
+            width: 80%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+        .container textarea {
+            resize: none;
+            height: 60px;
+        }
+        .gender {
+            display: flex;
+            align-items: center;
+        }
+        .gender input {
+            margin-left: 10px;
+        }
+        .register-btn {
+            width:80%;
+            padding: 10px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label>Name:</label>
+            <input type="text" placeholder="your name" required>
+            
+            <label>Email:</label>
+            <input type="email" placeholder="your email" required>
+            
+            <label>Password:</label>
+            <input type="password" required>
+            
+            <label>Phone Number:</label>
+            <input type="tel" required>
+            
+            <label>Gender:</label>
+            <div class="gender">
+                Male: <input type="radio" name="gender" value="male">
+                Female: <input type="radio" name="gender" value="female">
+                Other: <input type="radio" name="gender" value="other">
+            </div>
+            
+            <label>Language:</label>
+            <select>
+                <option>Select language</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Spanish</option>
+                <option>French</option>
+            </select>
+            
+            <label>Zip Code:</label>
+            <input type="text">
+            
+            <label>About:</label>
+            <textarea placeholder="Write about yourself..."></textarea>
+            
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>
