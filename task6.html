@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      font-family: cursive;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 10px 10px 2px;
+      border: 1px solid #413c3c;
+      border-radius: 5px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: gray;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #0095f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-box .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .login-box .options a {
+      text-decoration: none;
+      color: #0095f6;
+    }
+
+    .signup {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .signup a {
+      color: #0095f6;
+      text-decoration: none;
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Instagram</h2>
+    
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" placeholder="Username">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" placeholder="Password">
+    </div>
+
+    <button>Log in</button>
+
+    <div class="options">
+      <label><input type="checkbox"> Remember me</label>
+      <a href="#">Forgot Password?</a>
+    </div>
+
+    <div class="signup">
+      Don't have an account? <a href="#">Sign up here.</a>
+    </div>
+  </div>
+
+</body>
+</html>
