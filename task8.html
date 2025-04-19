@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(to bottom right, #ffe3b3, #e3b3ff);
+      text-align: center;
+    }
+
+    form {
+      width: 500px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    h2 {
+      color: darkblue;
+    }
+
+    label {
+      float: left;
+      width: 150px;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"],
+    textarea, select {
+      width: 300px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-left: 10px;
+    }
+
+    .btn {
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration form</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" id="firstName">
+      <span class="error" id="firstNameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" id="lastName">
+      <span class="error" id="lastNameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email">
+      <span class="error" id="emailError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password">
+      <span class="error" id="passwordError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Re-enter Password</label>
+      <input type="password" id="repassword">
+      <span class="error" id="repasswordError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <input type="radio" name="gender" value="Male" checked> Male
+      <input type="radio" name="gender" value="Female"> Female
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" id="age">
+      <span class="error" id="ageError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" id="phone">
+      <span class="error" id="phoneError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <textarea id="address"></textarea>
+      <span class="error" id="addressError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>State</label>
+      <input type="text" id="state">
+      <span class="error" id="stateError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Country</label>
+      <select id="country">
+        <option value="">Choose your country</option>
+        <option>India</option>
+        <option>USA</option>
+        <option>UK</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Languages known</label>
+      <input type="checkbox"> English
+      <input type="checkbox"> Kannada
+      <input type="checkbox"> Hindi
+      <input type="checkbox"> Telugu
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" required> Hereby I declare all the given details are true
+    </div>
+
+    <p>Log in to <a href="#">Ethnus</a> website</p>
+    <button type="submit" class="btn">REGISTER</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let valid = true;
+
+      const fields = [
+        { id: 'firstName', error: 'firstNameError' },
+        { id: 'lastName', error: 'lastNameError' },
+        { id: 'email', error: 'emailError' },
+        { id: 'password', error: 'passwordError' },
+        { id: 'repassword', error: 'repasswordError' },
+        { id: 'age', error: 'ageError' },
+        { id: 'phone', error: 'phoneError' },
+        { id: 'address', error: 'addressError' },
+        { id: 'state', error: 'stateError' },
+      ];
+
+      fields.forEach(({ id, error }) => {
+        const value = document.getElementById(id).value.trim();
+        if (value === "") {
+          document.getElementById(error).textContent = "POOR";
+          valid = false;
+        } else {
+          document.getElementById(error).textContent = "";
+        }
+      });
+
+      // Special check for password match
+      const pass = document.getElementById("password").value;
+      const repass = document.getElementById("repassword").value;
+      if (pass !== repass || pass === "") {
+        document.getElementById("repasswordError").textContent = "POOR OR MISMATCH";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+</body>
+</html>
